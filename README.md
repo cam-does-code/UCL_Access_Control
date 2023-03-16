@@ -11,3 +11,8 @@ Temperaturstyring
 
 Et system til at sikre en mere præcis overvågning og registrering af temperatur og luftfugtighed i et serverrack.
 Der placeres fx 2 sensorer i hvert rack til måling. Data lagres i en online database og det undersøges om det er muligt at udveksle data med PLC styringen, så data kan aflæses på nuværende HMI.
+
+
+Communication: Discord
+File sharing: Gitlab/Discord
+Meeting planning: 
