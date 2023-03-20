@@ -39,3 +39,18 @@ https://www.raspberrypi.com/products/raspberry-pi-4-model-b/
 https://raspberrypi.dk/en/shop/category/raspberry-pi-camera/
 https://www.elektor.com/new/new-in-the-store/makerfabs-rc522-rfid-reader-with-cards-kit-13-56-mhz?srsltid=Ad5pg_F1xdY1Y62EhLhw9c3aEBhWYHOgw4rFzF9x8xDabeXx1c5VfY4ut54
 
+
+
+import paho.mqtt.client as paho
+broker="192.168.1.184"
+port=1883
+def on_publish(client,userdata,result):             #create function for callback
+    print("data published \n")
+    pass
+client1= paho.Client("control1")                           #create client object
+client1.on_publish = on_publish                          #assign function to callback
+client1.connect(broker,port)                                 #establish connection
+ret= client1.publish("house/bulb1","on")
+
+while True:
+    client1.publish('sut min diller, harald')
