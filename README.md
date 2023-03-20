@@ -4,7 +4,7 @@
 | Raspberry Pi                     |        | 1     |      | https://www.raspberrypi.com/products/raspberry-pi-4-model-b/ |
 | Raspberry Pi I/O Cable Extension |        | 1     |      |                                                              |
 | Breadboard                       |        | 1     |      |                                                              |
-| Kamera                           |        | 1     |      | https://raspberrypi.dk/en/shop/category/raspberry-pi-camera/ |
+| Kamera                           |        | 1     | 171  | https://dk.rs-online.com/web/p/raspberry-pi-kameraer/9132673 |
 | RFID Sensor                      |        | 1     |      |                                                              |
 | RFID Kort                        |        | 1     |      |                                                              |
 | Lås                              |        | 1     |      |                                                              |
