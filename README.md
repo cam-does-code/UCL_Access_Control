@@ -14,6 +14,10 @@
 
 # Current Ideas:
 
+Temperatursensor    
+Fugtighedsmåler    
+Adgangskontrol med kortlæser  
+
 ### Adgangskontrol
 
 Et system til at sikre og registrere adgangen til datacentret. Personen der ønsker adgang skal scanne sit Id-kort, kombineret med en biometrisk bekræftelse i form af ansigtsgenkendelse eller fingeraftryk.
@@ -24,20 +28,30 @@ Når datacentret forlades, tjekker man igen ud med sit Id-kort. I en database lo
 ### Temperaturstyring
 
 Et system til at sikre en mere præcis overvågning og registrering af temperatur og luftfugtighed i et serverrack.
-Der placeres fx 2 sensorer i hvert rack til måling. Data lagres i en online database og det undersøges om det er muligt at udveksle data med PLC styringen, så data kan aflæses på nuværende HMI.
+Der placeres fx 2 sensorer i hvert rack til måling. Data lagres i en online database og det undersøges om det er muligt at udveksle data med PLC styringen, så data kan aflæses på nuværende HMI.  
+
+
+### Database:
+
+Til uploading af temperatur     
+Til uploading af fugtighed    
+Til uploading af hvem som har brugt sit kort til at få adgang til datarum    
+
+
+
+### Eventuelt: 
+
+Strømovervågning    
+Skræm/display til visning af temperatur i datarummet    
+Alarm/notifikation failsafe    
+Måling af temperatur i både top og bund af skabene.     
+”Toiletlås” til dør  
 
 
 Communication: Discord
 File sharing: Gitlab/Discord
 Meeting planning: 
 
-
-# Links
-
-https://www.raspberrypi.com/products/raspberry-pi-4-model-b/
-
-https://raspberrypi.dk/en/shop/category/raspberry-pi-camera/
-https://www.elektor.com/new/new-in-the-store/makerfabs-rc522-rfid-reader-with-cards-kit-13-56-mhz?srsltid=Ad5pg_F1xdY1Y62EhLhw9c3aEBhWYHOgw4rFzF9x8xDabeXx1c5VfY4ut54
 
 
 
