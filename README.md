@@ -53,4 +53,4 @@ client1.connect(broker,port)                                 #establish connecti
 ret= client1.publish("house/bulb1","on")
 
 while True:
-    client1.publish('sut min diller, harald')
+    client1.publish('Hello world')
