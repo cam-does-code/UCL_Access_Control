@@ -1,9 +1,9 @@
 # B2C Business
 Projekt Harald V2.1 skal startes op i et ApS selskab. 
-Årsagen til dette er, at ApS-selskabet kun kræver en opstarts indskydelse på Kr. 40.000, hvor et A/S kræver et indskud på Kr. 400.000. 
-En anden fordel ved ApS’et er, at det ikke kræver en bestyrelse.
-Havde vi skulle oprette selskabet i 2020, så havde vi valgt et IVS, da opstarts indskydelsen kun var på Kr. 1. 
-I 2021 valgte man dog, at lukke for selskabsformen IVS, og herefter skulle alle IVS selskaber omkonveteres til ApS’er.
+Årsagen til dette er, at ApS-selskabet kun kræver en opstarts indskydelse på Kr. 40.000, hvor et A/S kræver et indskud på Kr. 400.000.     
+En anden fordel ved ApS’et er, at det ikke kræver en bestyrelse.    
+Havde vi skulle oprette selskabet i 2020, så havde vi valgt et IVS, da opstarts indskydelsen kun var på Kr. 1.     
+I 2021 valgte man dog, at lukke for selskabsformen IVS, og herefter skulle alle IVS selskaber omkonveteres til ApS’er.    
 
 # Komponentliste
 | Komponent                        | Formål | Antal | Pris | Link                                                         |
