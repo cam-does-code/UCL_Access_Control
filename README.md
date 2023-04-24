@@ -5,6 +5,8 @@ En anden fordel ved ApS’et er, at det ikke kræver en bestyrelse.
 Havde vi skulle oprette selskabet i 2020, så havde vi valgt et IVS, da opstarts indskydelsen kun var på Kr. 1.     
 I 2021 valgte man dog, at lukke for selskabsformen IVS, og herefter skulle alle IVS selskaber omkonveteres til ApS’er.    
 
+![OrgChart](https://cdn.discordapp.com/attachments/1084777803553177644/1099961159102238760/image.png "OrgChart")
+
 # Komponentliste
 | Komponent                        | Formål | Antal | Pris | Link                                                         |
 |----------------------------------|--------|-------|------|--------------------------------------------------------------|
