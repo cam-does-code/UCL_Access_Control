@@ -11,19 +11,18 @@ db = client.get_database("harald")
 collection = db.get_collection('access')
 
 def access_ok():
-    from main import face_ok
     LED_Green = 18
     GPIO.setmode(GPIO.BOARD)
     GPIO.setup(LED_Green,GPIO.OUT)
-    if face_ok == 1:
-        GPIO.output(LED_Green, GPIO.HIGH)
-        print("Godkendt. Velkommen")
-        data = {"id": kort,"timestamp":datetime.datetime.now()}
-        x = collection.insert_one(data)
-        print(x.inserted_id)
-        sleep(5)
-        GPIO.output(LED_Green, GPIO.LOW)
-        GPIO.cleanup()
+    GPIO.output(LED_Green, GPIO.HIGH)
+    print("Godkendt. Velkommen")
+    data = {"id": kort,"timestamp":datetime.datetime.now()}
+    x = collection.insert_one(data)
+    print(x.inserted_id)
+    sleep(5)
+    GPIO.output(LED_Green, GPIO.LOW)
+    GPIO.cleanup()
+
 
 def access_denied():
     LED_Red = 16

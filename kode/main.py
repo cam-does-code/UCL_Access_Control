@@ -9,8 +9,13 @@ from MultiMsgSync import TwoStageHostSeqSync
 from time import sleep
 from connect_db import username
 import keyboard
+import time
 
-face_ok = 0
+face_auth = {
+    'auth': None
+}
+
+time_limit = 10
 
 def camera():
     parser = argparse.ArgumentParser()
@@ -207,6 +212,9 @@ def camera():
         for name in ["color", "detection", "recognition"]:
             queues[name] = device.getOutputQueue(name)
 
+        # Keep track of the start time
+        start_time = time.monotonic()
+
         while True:
             for name, q in queues.items():
                 # Add all msgs (color frames, object detections and face recognitions) to the Sync class.
@@ -227,11 +235,19 @@ def camera():
                     text.putText(frame, f"{name} {(100*conf):.0f}%", (bbox[0] + 10,bbox[1] + 35))
                     if name == username['name'] and 100*conf >= 80:
                         print('Fundet!')
-                        global face_ok 
-                        face_ok = 1
-                        keyboard.send("q")               
+                        face_auth['auth'] = 1
+                        keyboard.send("q")
+                        # Reset the start time
+                        start_time = time.monotonic()           
 
                 cv2.imshow("color", cv2.resize(frame, (800,800)))
 
-            if cv2.waitKey(1) == ord('q'):
-                break
+            # Check if the time limit has been exceeded
+                elapsed_time = time.monotonic() - start_time
+                if elapsed_time > time_limit:
+                    print('Timeout!')
+                    face_auth['auth'] = 0
+                    break
+
+                if cv2.waitKey(1) == ord('q'):
+                    break
