@@ -31,6 +31,7 @@ def access_denied():
     GPIO.output(LED_Red, GPIO.HIGH)
     print("Ukendt Kort! Ingen adgang!")
     sleep(5)
-    GPIO.output(LED_Red, GPIO.LOW)                    
+    GPIO.output(LED_Red, GPIO.LOW)
+    GPIO.cleanup()                    
 
 

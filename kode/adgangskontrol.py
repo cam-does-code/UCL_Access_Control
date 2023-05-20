@@ -2,22 +2,16 @@ from connect_db import user_lookup, ok
 from reader import read
 from main import camera, face_auth
 from access import access_ok, access_denied
-import time
+from RPi import GPIO
+from time import sleep
 
-import time
-
-import Adafruit_GPIO.SPI as SPI
 import Adafruit_SSD1306
-
 from PIL import Image
 from PIL import ImageDraw
 from PIL import ImageFont
 
-import subprocess
-
-RST = 3
-state = 1
-disp = Adafruit_SSD1306.SSD1306_128_32(rst=RST)
+RST = 36
+disp = Adafruit_SSD1306.SSD1306_128_64(rst=RST)
 # Initialize library.
 disp.begin()
 
@@ -45,12 +39,22 @@ x = 0
 
 
 # Load default font.
-font = ImageFont.load_default()
+#font = ImageFont.load_default()
+
+# Alternatively load a TTF font.  Make sure the .ttf font file is in the same directory as the python script!
+# Some other nice fonts to try: http://www.dafont.com/bitmap.php
+font = ImageFont.truetype('Roboto-BoldCondensed.ttf', 27)
+
+# Default state.
+state = 1
 
 try:
     while True:
         if state == 1: # Scanner kortet
-            draw.text((x, top),       "Scan Kort", font=font, fill=255)
+            draw.rectangle((0,0,width,height), outline=0, fill=0)
+            draw.text((x, top+24),       "Scan Kort", font=font, fill=255)
+            disp.image(image)
+            disp.display()
             print('state 1')
             read()
             state = 2
@@ -58,14 +62,23 @@ try:
             print('state 2')
             user_lookup()
             x = ok.get('access') 
-            draw.text((x, top),       "Kort Godkendt", font=font, fill=255)
+            draw.rectangle((0,0,width,height), outline=0, fill=0)
+            draw.text((x, top+0),  "Kontrollerer", font=font, fill=255)
+            draw.text((x, top+30), "ID", font=font, fill=255)
+            disp.image(image)
+            disp.display()
+            sleep(3)
             if x == 1: # Hvis den retunerede værdi er 1, findes ID-kortet i DB og ansigtskendelsen startes.
                 state = 3
             elif x == 0: # Hvis værdien er = 0, findes ID-kortet ikke og brugeren afvises.
                 state = 5
         if state == 3: # Starter kameraet og ansigtsgenkendelsen
             print('state 3')
-            draw.text((x, top),       "Scanner Ansigt", font=font, fill=255)
+            draw.rectangle((0,0,width,height), outline=0, fill=0)
+            draw.text((x, top+0),  "Scanner", font=font, fill=255)
+            draw.text((x, top+30),"Ansigt", font=font, fill=255)
+            disp.image(image)
+            disp.display()
             camera()
             auth = face_auth.get('auth')
             print(auth)
@@ -75,14 +88,24 @@ try:
                 state = 5
         if state == 4: # Brugeren er genkendt og der gives adgang til datacenteret. Adgangen registreres i databasen.
             print('state 4')
-            draw.text((x, top),       "Godkendt", font=font, fill=255)
+            draw.rectangle((0,0,width,height), outline=0, fill=0)
+            draw.text((x, top+24),       "Godkendt", font=font, fill=255)
+            disp.image(image)
+            disp.display()
             access_ok()
             state = 1
         if state == 5:# Brugeren blev ikke genkendt, adgang afvises.
             print('state 5')
-            draw.text((x, top),       "Afvist", font=font, fill=255)
+            draw.rectangle((0,0,width,height), outline=0, fill=0)
+            draw.text((x, top+24),       "Afvist", font=font, fill=255)
+            disp.image(image)
+            disp.display()
             access_denied()
             state = 1
 except KeyboardInterrupt:
     print(' Stop!')
-    draw.text((x, top),       "Annulleret", font=font, fill=255)
+    draw.rectangle((0,0,width,height), outline=0, fill=0)
+    draw.text((x, top+24),       "Annulleret", font=font, fill=255)
+    disp.image(image)
+    disp.display()
+    GPIO.cleanup() 
