@@ -81,7 +81,7 @@ try:
             disp.display()
             camera()
             auth = face_auth.get('auth')
-            print(auth)
+            #print(auth)
             if auth == 1: # Ansigt genkendt. 
                 state = 4
             elif auth == 0: # Hvis det korrekte ansigt ikke er genkendt inden for 10 sekunder, nægtes adgangen.
