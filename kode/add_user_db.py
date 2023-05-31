@@ -56,8 +56,8 @@ dblist = client.list_database_names()
 if "harald" in dblist:
   print("The database exists.")
 
-fornavn = "test"
-efternavn = "testesen"
+fornavn = "Christian"
+efternavn = "Tverskov"
 
 try:
     while True:
